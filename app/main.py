@@ -1,10 +1,11 @@
 # app/main.py
 from fastapi import FastAPI
 from typing import Dict
-from app.routers import users
+from app.config import settings
+from app.routes import users
 
 app = FastAPI(
-    title="FitTrack API",
+    title=settings.PROJECT_NAME,
     description="API para sistema de gestión de ejercicios",
     version="0.1.0"
 )
