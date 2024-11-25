@@ -1,12 +1,16 @@
 # app/main.py
 from fastapi import FastAPI
 from typing import Dict
+from app.routers import users
 
 app = FastAPI(
     title="FitTrack API",
     description="API para sistema de gestión de ejercicios",
     version="0.1.0"
 )
+
+app.include_router(users.router)
+
 
 @app.get("/", response_model=Dict[str, str])
 def read_root() -> Dict[str, str]:
